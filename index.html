@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Encuesta UNEMI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- DataTable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Roboto','Open Sans', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1D2B4F;
+        }
+
+        .logo-tigre {
+            height: 60px;
+            object-fit: contain;
+           
+        }
+        .logo-unemi {
+            height: 50px;
+            object-fit: contain;
+           
+        }
+        .franja-superior {
+            background-color: #1D2B4F;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .franja-naranja {
+            height: 10px;
+            background-color: #F39200;
+        }
+
+      .container-capacit {
+        max-width: 900px; margin: auto;
+      }
+    
+    </style>
+
+
+<body class="bg-light">
+
+<!-- Encabezado -->
+<div class="franja-superior d-flex justify-content-between align-items-center px-3">
+    <!-- Izquierda -->
+    <div class="d-flex align-items-center">
+        <img src="img/logo-unemi.png" alt="Logo" class="logo-tigre">
+    </div>
+
+    <!-- CABECERA DE LA PAGINA -->
+    <div class="text-center flex-grow-1">
+        <h2 style="color:white;" class="fw-bold">UNEMI DAC</h2>
+    </div>
+
+    <!-- Derecha -->
+    <div class="d-flex align-items-center justify-content-end">
+        <img src="img/unemi-logo.png" alt="Logo" class="logo-unemi">
+    </div>
+</div>
+<div class="franja-naranja"></div>
+
+<div class="container container-capacit mt-4 mb-4">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Acreditación Internacional ACBSP</h2>
+
+      <form id="formularioEncuesta">
+        <!-- Nuevos campos: Nombre y Apellido -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre *</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required />
+            <div class="invalid-feedback">Por favor ingrese su nombre.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido *</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required />
+            <div class="invalid-feedback">Por favor ingrese su apellido.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo electrónico *</label>
+          <input type="email" class="form-control" id="correo" name="correo" required />
+          <div class="invalid-feedback">Por favor ingrese un correo válido.</div>
+        </div>
+
+        <!-- Pregunta 1 -->
+        <div class="mb-3">
+          <label class="form-label">1. ¿Qué tan satisfecho/a está con la organización del evento?</label>
+            <div class="form-check">
+              <label  class="form-check-label">
+                <input class="form-check-input" type="radio" name="res1" value="Nada satisfecho" required>
+                Nada satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res1" value="Poco satisfecho">
+                Poco satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res1" value="Satisfecho">
+                Satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res1" value="Totalmente satisfecho">
+                Totalmente satisfecho
+              </label>
+            </div>
+        </div>
+
+
+        <!-- Pregunta 2 -->
+        <div class="mb-3">
+            <label class="form-label">2. ¿Qué tan satisfecho/a está con las intervenciones de los ponentes?</label>
+            <div class="form-check">
+              <label  class="form-check-label">
+                <input class="form-check-input" type="radio" name="res2" value="Nada satisfecho" required>
+                Nada satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res2" value="Poco satisfecho">
+                Poco satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res2" value="Satisfecho">
+                Satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res2" value="Totalmente satisfecho">
+                Totalmente satisfecho
+              </label>
+            </div>
+        </div>
+
+      <!-- Pregunta 3 -->
+        <div class="mb-3">
+          <label class="form-label">3. ¿Qué tan satisfecho/a está con el orden y manejo del tiempo del evento?</label>
+            <div class="form-check">
+              <label  class="form-check-label">
+                <input class="form-check-input" type="radio" name="res3" value="Nada satisfecho" required>
+                Nada satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res3" value="Poco satisfecho">
+                Poco satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res3" value="Satisfecho">
+                Satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res3" value="Totalmente satisfecho">
+                Totalmente satisfecho
+              </label>
+            </div>
+        </div>
+
+      <!-- Pregunta 4 -->
+        <div class="mb-3">
+          <label class="form-label">4. ¿Qué tan satisfecho/a está con los contenidos abordados durante el evento?</label>
+            <div class="form-check">
+              <label  class="form-check-label">
+                <input class="form-check-input" type="radio" name="res4" value="Nada satisfecho" required>
+                Nada satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res4" value="Poco satisfecho">
+                Poco satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res4" value="Satisfecho">
+                Satisfecho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res4" value="Totalmente satisfecho">
+                Totalmente satisfecho
+              </label>
+            </div>
+        </div>
+
+      <!-- Pregunta 5 -->
+        <!-- Pregunta 5 (ejemplo) -->
+        <div class="mb-3">
+          <label class="form-label">5. ¿En qué aspectos considera que se podría mejorar el evento?</label>
+            <div class="form-check">
+              <label  class="form-check-label">
+                <input class="form-check-input" type="radio" name="res5" value="Logística (audio, espacio, puntualidad)" required>
+                Logística (audio, espacio, puntualidad)
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res5" value="Participación de los asistentes">
+                Participación de los asistentes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="res5" value="Ninguno, el evento fue satisfactorio">
+                Ninguno, el evento fue satisfactorio
+              </label>
+            </div>
+        </div>
+      <!-- Botón de envío -->
+        <div class="d-flex align-items-center justify-content-center">
+        <button type="submit" class="btn btn-primary w-45">Enviar encuesta</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Loader -->
+<div class="modal fade" id="modalLoader" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content d-flex flex-column justify-content-center align-items-center p-5">
+      <div class="spinner-border text-primary mb-3" role="status"></div>
+      <h5 class="modal-title text-center">Enviando respuesta...</h5>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Gracias -->
+<div class="modal fade" id="modalGracias" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-5">
+      <h5 class="text-primary mb-3">¡Gracias por tu respuesta!</h5>
+      <i class="fas fa-thumbs-up fa-3x text-primary"></i> <!-- ícono de like -->
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  // REEMPLAZA por la URL de tu Web App de Google Apps Script (ver instrucciones más abajo)
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOA7DJGQhSGUhZ6jFiOCYlY4bTg82k_nbkGsLMJH0gewfBgberkoOXjq_PK4TceftJ3w/exec";
+
+  const formulario = document.getElementById('formularioEncuesta');
+  const loaderModal = new bootstrap.Modal(document.getElementById('modalLoader'));
+  const graciasModal = new bootstrap.Modal(document.getElementById('modalGracias'));
+
+  formulario.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Campos
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
+    const correo = document.getElementById('correo');
+
+    // Remover clases anteriores
+    nombreInput.classList.remove('is-invalid');
+    apellidoInput.classList.remove('is-invalid');
+    correo.classList.remove('is-invalid');
+
+    // Validaciones básicas
+    if (!nombreInput.value.trim()) {
+      nombreInput.classList.add('is-invalid');
+      nombreInput.focus();
+      return;
+    }
+    if (!apellidoInput.value.trim()) {
+      apellidoInput.classList.add('is-invalid');
+      apellidoInput.focus();
+      return;
+    }
+    if (!correo.value.trim()) {
+      correo.classList.add('is-invalid');
+      correo.focus();
+      return;
+    }
+
+    // Enviar todos los campos del formulario al Apps Script
+    const data = new FormData(this);
+
+    // Show loader
+    loaderModal.show();
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: data
+      });
+
+      // Intentar parsear respuesta JSON
+      let json;
+      try { json = await response.json(); } catch(e) { json = null; }
+
+      if (!response.ok) {
+        throw new Error((json && json.message) ? json.message : 'Error al enviar datos');
+      }
+
+      formulario.reset();
+      loaderModal.hide();
+      graciasModal.show();
+    } catch (error) {
+      loaderModal.hide();
+      // Mensaje de error amigable
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No fue posible enviar la encuesta: ' + error.message
+      });
+    }
+  });
+</script>
+</body>
+</html>
